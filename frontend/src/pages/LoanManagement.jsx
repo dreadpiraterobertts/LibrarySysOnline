@@ -46,7 +46,7 @@ const LoanManagement = () => {
       if (filter === "Overdue") endpoint = "/loans/overdue";
       if (filter === "Returned") endpoint = "/loans/returned";
 
-      const response = await fetch(`http://localhost:5000${endpoint}?search=${search}&page=${currentPage}`);
+      const response = await fetch(`https://librarybackend-bixf.onrender.com${endpoint}?search=${search}&page=${currentPage}`);
       const data = await response.json();
       setLoans(data);
       setTotalPages(data.totalPages);

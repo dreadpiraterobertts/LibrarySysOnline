@@ -15,7 +15,7 @@ const Users = () => {
   const fetchUsers = async () => {
     setLoading(true)
     try {
-      let url = `http://localhost:5000/users?search=${search}`;
+      let url = `https://librarybackend-bixf.onrender.com/users?search=${search}`;
       if (!search) {
         url += `&page=${page}&limit=${limit}`;
       }
@@ -61,7 +61,7 @@ const Users = () => {
   const deleteUser = async (id,full_name) => {
    if(confirm(`Are you sure you want to delete the user "${full_name}" ?`)){
     try {
-      const response = await fetch(`http://localhost:5000/users/${id}`, {
+      const response = await fetch(`https://librarybackend-bixf.onrender.com/users/${id}`, {
         method: "DELETE",
       });
   

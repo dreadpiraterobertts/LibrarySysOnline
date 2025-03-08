@@ -16,7 +16,7 @@ const IssueLoan = ({username,id}) => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/users');
+        const response = await fetch('https://librarybackend-bixf.onrender.com/users');
         const data = await response.json();
         setUsers(data.map((user) => ({ value: user._id, label: user.full_name })));
       } catch (err) {
@@ -26,7 +26,7 @@ const IssueLoan = ({username,id}) => {
 
     const fetchBooks = async () => {
       try {
-        const response = await fetch('http://localhost:5000/books');
+        const response = await fetch('https://librarybackend-bixf.onrender.com/books');
         const data = await response.json();
         setBooks(data.map((book) => ({ value: book._id, label: book.title })));
       } catch (err) {
@@ -36,7 +36,7 @@ const IssueLoan = ({username,id}) => {
 
     const fetchAdmins = async () => {
       try {
-        const response = await fetch('http://localhost:5000/admins');
+        const response = await fetch('https://librarybackend-bixf.onrender.com/admins');
         const data = await response.json();
         setAdmins(data.map((admin) => ({ value: admin._id, label: admin.user_name })));
       } catch (err) {
@@ -57,7 +57,7 @@ const IssueLoan = ({username,id}) => {
 
     if (window.confirm("Issuing a loan ... do you want to continue?")) {
       try {
-        const response = await fetch('http://localhost:5000/loans', {
+        const response = await fetch('https://librarybackend-bixf.onrender.com/loans', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

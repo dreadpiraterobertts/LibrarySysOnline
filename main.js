@@ -37,7 +37,7 @@ function createMainWindow() {
 
     const startUrl = `http://localhost:${frontendPort}`;
     const devUrl = `http://localhost:5173`
-    mainWindow.loadURL(startUrl);
+    mainWindow.loadURL(devUrl);
 }
 
 // Function to check if the backend port is already in use

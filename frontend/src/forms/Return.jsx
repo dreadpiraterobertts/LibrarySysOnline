@@ -12,7 +12,7 @@ const Return = ({loanId,user,book}) => {
       e.preventDefault();
   
       try {
-        const response = await fetch(`http://localhost:5000/loans/${loanId}/return`, {
+        const response = await fetch(`https://librarybackend-bixf.onrender.com/loans/${loanId}/return`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

@@ -222,10 +222,6 @@ app.post('/users', async (req, res) => {
   
     try {
       // Check for existing username
-      const existingUser = await User.findOne({ user_name });
-      if (existingUser) {
-        return res.status(400).json({ error: 'Username already taken' });
-      }
   
       // Create and save the new user
       const newUser = new User({ full_name, user_name, phone_number });

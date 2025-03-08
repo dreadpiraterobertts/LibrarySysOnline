@@ -19,7 +19,7 @@ const Books = () => {
     setLoading(true)
     try {
       const endpoint = showAvailable ? "/books/available" : "/books";
-      let url = `http://localhost:5000${endpoint}?search=${search}`;
+      let url = `https://librarybackend-bixf.onrender.com${endpoint}?search=${search}`;
   
       // Only add pagination if there's no search term
       if (!search) {
@@ -75,7 +75,7 @@ const Books = () => {
 const deleteBook = async (id,title) => {
  if(confirm(`Are you sure you want to delete the book "${title}" ?`)){
   try {
-    const response = await fetch(`http://localhost:5000/books/${id}`, {
+    const response = await fetch(`https://librarybackend-bixf.onrender.com/books/${id}`, {
       method: "DELETE",
     });
 

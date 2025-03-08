@@ -27,17 +27,17 @@ const Dashboard = ({username, id}) => {
  
   useEffect(()=>{
     const fetchBooks = async () => {
-      const response = await fetch('http://localhost:5000/books');
+      const response = await fetch('https://librarybackend-bixf.onrender.com/books');
       const data = await response.json();
       setBooks(data.length)
     }
     const fetchCurrent = async ()=>{
-      const response = await fetch('http://localhost:5000/loans/current')
+      const response = await fetch('https://librarybackend-bixf.onrender.com/loans/current')
       const data = await response.json()
       setCurrent(data.length)
     }
     const fetchOverdue = async () =>{
-      const response = await fetch('http://localhost:5000/loans/overdue')
+      const response = await fetch('https://librarybackend-bixf.onrender.com/loans/overdue')
       const data = await response.json()
       setOverdue(data.length) 
     }
