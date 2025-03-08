@@ -1,0 +1,67 @@
+{
+    "name": "librarysys",
+    "productName": "World Harvest Theological College Library",
+    "version": "1.0.0",
+    "description": "A library management system built with Electron, React, and Express.",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "keywords": [
+        "electron",
+        "library",
+        "management",
+        "system"
+    ],
+    "author": "Mussie Teklu",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^34.1.1",
+        "electron-builder": "^25.1.8"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "csv-parser": "^3.2.0",
+        "express": "^4.21.2" 
+       
+    },
+    "build": {
+        "appId": "com.mussie.librarysys",
+        "productName": "World Harvest Theological College Library",
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ],
+            "icon": "whlogo.png"
+        },
+        "linux": {
+            "target": [
+                "AppImage"
+            ],
+            "icon": "whlogo.png",
+            "category": "Utility"
+        },
+        "files": [
+            "main.js",
+            "frontend/dist/**/*",
+            "node_modules/**/*",
+            "whlogo.png"
+        ],
+        "extraResources": [
+            {
+                "from": "/usr/bin/node",
+                "to": "node"
+            }
+        ],
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true
+        }
+    }
+}
