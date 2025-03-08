@@ -28,7 +28,7 @@ const AddUser = ({ userToEdit }) => {
 
     try {
       const response = await fetch(
-        userToEdit ? `https://librarybackend-bixf.onrender.com/users/${userToEdit.id}` : "https://librarybackend-bixf.onrender.com/users",
+        userToEdit ? `https://librarybackend-bixf.onrender.com/users/${userToEdit.id}` : "http://localhost:5000/users",
         {
           method: userToEdit ? "PUT" : "POST", // Use PUT for updates, POST for new users
           headers: { "Content-Type": "application/json" },

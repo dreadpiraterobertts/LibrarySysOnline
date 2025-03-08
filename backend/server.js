@@ -217,14 +217,14 @@ app.post('/users', async (req, res) => {
   
     // Validate input
     if (!full_name || !phone_number) {
-      return res.status(400).json({ error: 'All fields are required' });
+      return res.status(400).json({ error: 'Full name and phone number are required' });
     }
+    const sanitizedUserName = user_name && user_name.trim() !== "" ? user_name : "none";
+
   
-    try {
-      // Check for existing username
-  
+    try {  
       // Create and save the new user
-      const newUser = new User({ full_name, user_name, phone_number });
+      const newUser = new User({ full_name, user_name:sanitizedUserName, phone_number });
       await newUser.save();
       res.status(201).json({ message: 'User added successfully!' });
     } catch (err) {
