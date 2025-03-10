@@ -48,6 +48,14 @@ app.get('/admin' , async(req,res)=>{
   }
 })
 
+app.delete('/admins/:id', async (req, res) => {
+  try {
+    await Admin.findByIdAndDelete(req.params.id);
+    res.json({ message: 'Admin deleted successfully' });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 app.post("/login", async (req, res) => {
   const { user_name, password } = req.body;
   const admin = await Admin.findOne({ user_name });
@@ -237,12 +245,7 @@ app.put('/users/:id', async (req, res) => {
     const userId = req.params.id;
   
     try {
-      // Check for existing username (exclude current user)
-      const existingUser = await User.findOne({ user_name, _id: { $ne: userId } });
-      if (existingUser) {
-        return res.status(400).json({ error: 'Username already taken' });
-      }
-  
+      
       // Update user details
       const updatedUser = await User.findByIdAndUpdate(
         userId,
